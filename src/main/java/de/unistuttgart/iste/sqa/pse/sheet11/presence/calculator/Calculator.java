@@ -5,16 +5,16 @@ package de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator;
  */
 public interface Calculator {
 
-	/*
-	 * @ensures summand1 + summand2 <= Integer.MAX_VALUE & summand1 + summand2 >=
-	 * Integer.MIN_VALUE ==> \result summand1 + summand2
-	 * 
-	 * @ensures summand1 + summand2 > Integer.MAX_VALUE ==> \result =
-	 * Integer.MIN_VALUE + (summand1 + summand2 - Integer.MAX_VALUE) - 1
-	 * 
-	 * @ensures summand1 + summand2 < Integer.MIN_VALUE ==> \result =
-	 * Integer.MAX_VALUE - (summand1 + summand2 + Integer.MAX_VALUE) + 1
-	 */
+	/*@
+	 @ ensures summand1 + summand2 <= Integer.MAX_VALUE & summand1 + summand2 >=
+	 @ Integer.MIN_VALUE ==> \result == summand1 + summand2;
+	 @
+	 @ ensures summand1 + summand2 > Integer.MAX_VALUE ==> \result ==
+	 @ Integer.MIN_VALUE + (summand1 + summand2 - Integer.MAX_VALUE) - 1;
+	 @
+	 @ ensures summand1 + summand2 < Integer.MIN_VALUE ==> \result ==
+	 @ Integer.MAX_VALUE + (summand1 + summand2 - Integer.MIN_VALUE) + 1;
+	 @*/
 	/**
 	 * calculate the sum of two integer values.
 	 * 
@@ -28,16 +28,14 @@ public interface Calculator {
 	 */
 	public int add(final int summand1, final int summand2);
 
-	/*
-	 * @requires divisor != Interger.MIN_VALUE
-	 * 
-	 * @requires divisor != 0
-	 * 
-	 * @requires dividend != Integer.MIN_VALUE
-	 * 
-	 * @ensures divisor != 0 ==> \result = correctly rounded quotient
-	 * 
-	 */
+	/*@
+	 @ requires divisor != Integer.MIN_VALUE;
+	 @ requires divisor != 0;
+	 @ requires dividend != Integer.MIN_VALUE;
+	 @
+	 @ ensures divisor != 0 ==> \result == correctly rounded quotient;
+	 @
+	 @*/
 	/**
 	 * Calculates the quotient of two integer values.
 	 * 
@@ -57,19 +55,18 @@ public interface Calculator {
 	 */
 	public int divide(final int dividend, final int divisor);
 
-	/**
+	/*
 	 * Operations for exercise 3
 	 */
 
-	/*
-	 * @requires summand1 + summand2 >= Integer.MIN_Value
-	 * 
-	 * @requires summand1 + summand2 <= Integer.MAX_Value
-	 * 
-	 * @ensures summand1 + summand2 <= Integer.MAX_VALUE && summand1 + summand2 >=
-	 * Integer.MIN_VALUE ==> \result summand1 + summand2
-	 * 
-	 */
+	/*@
+	 @ requires summand1 + summand2 >= Integer.MIN_Value;
+	 @ requires summand1 + summand2 <= Integer.MAX_Value;
+	 @
+	 @ ensures summand1 + summand2 <= Integer.MAX_VALUE && summand1 + summand2 >=
+	 @ Integer.MIN_VALUE ==> \result == summand1 + summand2;
+	 @
+	 @*/
 	/**
 	 * 
 	 * calculates the sum of two integer values
@@ -91,22 +88,20 @@ public interface Calculator {
 	 */
 	public int addExact(final int summand1, final int summand2);
 
-	/*
-	 * @requires value != Integer.MIN_Value
-	 * 
-	 * @ensures value >= 0 ==> \result == value
-	 * 
-	 * @ensures value < 0 ==> \result == value*-1
-	 * 
-	 * 
-	 */
+	/*@
+	 @ requires value != Integer.MIN_Value;
+	 @
+	 @ ensures value >= 0 ==> \result == value;
+	 @ ensures value < 0 ==> \result == -1 * value;
+	 @
+	 @*/
 	/**
 	 * calculates absolute value of a given integer value
 	 * 
 	 * if the value is equal to minimal Integer Value a Arithmetic Exception is
 	 * thrown because Integer.MIN_Value is not displayable as a positive number
 	 * 
-	 * @param integer value
+	 * @param value value
 	 * @return absolute value
 	 * @throws ArithmeticException if value is equal to Integer.MIN_Value
 	 */
