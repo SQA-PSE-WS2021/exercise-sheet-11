@@ -56,7 +56,7 @@ public interface Calculator {
 	public int divide(final int dividend, final int divisor);
 
 	/*
-	 * Operations for exercise 3
+	 * Operations for exercise 2
 	 */
 
 	/*@
