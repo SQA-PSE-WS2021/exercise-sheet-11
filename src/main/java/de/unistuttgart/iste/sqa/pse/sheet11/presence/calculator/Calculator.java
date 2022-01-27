@@ -18,9 +18,8 @@ public interface Calculator {
 	/**
 	 * calculate the sum of two integer values.
 	 * 
-	 * if the sum is greater than {@linkplain Integer#MAX_VALUE INTEGER.MAX_VALUE}
-	 * or smaller than {@linkplain Integer#MIN_VALUE INTEGER.MIN_VALUE} an overflow
-	 * happens
+	 * if the sum is greater than {@link Integer#MAX_VALUE} or
+	 * smaller than {@link Integer#MIN_VALUE}, an overflow happens
 	 * 
 	 * @param summand1 first summand
 	 * @param summand2 second summand
@@ -31,7 +30,7 @@ public interface Calculator {
 	/*@
 	 @ requires (divisor != INTEGER.MIN_VALUE && divisor != 0) && (dividend != INTEGER.MIN_VALUE);
 	 @
-	 @ ensures divisor != 0 ==> \result == correctly rounded quotient;
+	 @ ensures \result == correctly rounded quotient;
 	 @
 	 @*/
 	/**
@@ -48,8 +47,7 @@ public interface Calculator {
 	 * @return the quotient
 	 * @throws ArithmeticException      if {@code divisor} is zero
 	 * @throws IllegalArgumentException if {@code divisor} or {@code dividend} is
-	 *                                  {@linkplain Integer#MIN_VALUE
-	 *                                  INTEGER.MIN_VALUE}
+	 *                                  {@link Integer#MAX_VALUE}
 	 */
 	public int /*@ pure @*/ divide(final int dividend, final int divisor);
 
@@ -61,25 +59,24 @@ public interface Calculator {
 	 @ requires (summand1 + summand2 >= INTEGER.MIN_VALUE)
 	 @ && (summand1 + summand2 <= INTEGER.MAX_VALUE);
 	 @
-	 @ ensures summand1 + summand2 <= INTEGER.MAX_VALUE && summand1 + summand2 >=
-	 @ INTEGER.MIN_VALUE ==> \result == summand1 + summand2;
+	 @ ensures \result == summand1 + summand2;
 	 @
 	 @*/
 	/**
 	 * 
 	 * calculates the sum of two integer values
 	 * 
-	 * If the sum is greater than the integer range an ArithmeticException is thrown
-	 * with an Error Message, which indicates that an Integer Overflow occured.
+	 * If the sum is greater than the integer range an {@link ArithmeticException} is thrown
+	 * with an Error message, which indicates that an integer overflow occured.
 	 * 
-	 * If the sum is lesser than the integer range an ArithmeticException is thrown
-	 * with an Error Message. Which indicates that an Integer Underflow occured
+	 * If the sum is lesser than the integer range an {@link ArithmeticException} is thrown
+	 * with an Error message. Which indicates that an integer underflow occured
 	 * 
 	 * @param summand1 first summand
 	 * @param summand2 second summand
 	 * @throws ArithmeticException if summand1 + summand2 are greater than
-	 *                             INTEGER.MAX_VALUE or summand1 + summand2 are
-	 *                             smaller than INTEGER.MIN_VALUE
+	 *                             {@link Integer#MAX_VALUE} or summand1 + summand2 are
+	 *                             smaller than {@link Integer#MIN_VALUE}
 	 * 
 	 * @return sum of summand1 and summand2
 	 * 
@@ -95,8 +92,8 @@ public interface Calculator {
 	/**
 	 * calculates absolute value of a given integer value
 	 * 
-	 * if the value is equal to minimal Integer Value a Arithmetic Exception is
-	 * thrown because INTEGER.MIN_VALUE is not displayable as a positive number
+	 * if the value is equal to minimal Integer Value a {@link ArithmeticException} is
+	 * thrown because {@link Integer#MIN_VALUE} is not displayable as a positive number
 	 *
 	 * @return absolute value, that is |value-0|.
 	 * @throws ArithmeticException if value is equal to INTEGER.MIN_VALUE
