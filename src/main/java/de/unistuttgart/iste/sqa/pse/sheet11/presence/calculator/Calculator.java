@@ -16,9 +16,9 @@ public interface Calculator {
 	 @ INTEGER.MAX_VALUE + (summand1 + summand2 - INTEGER.MIN_VALUE) + 1;
 	 @*/
 	/**
-	 * calculate the sum of two integer values.
+	 * Calculates the sum of two integer values.
 	 * 
-	 * if the sum is greater than {@link Integer#MAX_VALUE} or
+	 * If the sum is greater than {@link Integer#MAX_VALUE} or
 	 * smaller than {@link Integer#MIN_VALUE}, an overflow or
 	 * underflow happens, respectively.
 	 * 
@@ -65,13 +65,13 @@ public interface Calculator {
 	 @*/
 	/**
 	 * 
-	 * calculates the sum of two integer values
+	 * Calculates the sum of two integer values.
 	 * 
 	 * If the sum is greater than the integer range an {@link ArithmeticException} is thrown
-	 * with an Error message, which indicates that an integer overflow occured.
+	 * with an error message, which indicates that an integer overflow occured.
 	 * 
 	 * If the sum is lesser than the integer range an {@link ArithmeticException} is thrown
-	 * with an Error message. Which indicates that an integer underflow occured
+	 * with an error message. Which indicates that an integer underflow occured.
 	 * 
 	 * @param summand1 first summand
 	 * @param summand2 second summand
@@ -91,10 +91,10 @@ public interface Calculator {
 	 @ && (value < 0 ==> \result == -1 * value);
 	 @*/
 	/**
-	 * calculates absolute value of a given integer value
+	 * Calculates the absolute value of a given integer value.
 	 * 
-	 * if the value is equal to minimal integer value a {@link ArithmeticException} is
-	 * thrown because {@link Integer#MIN_VALUE} is not displayable as a positive number
+	 * If the value is equal to {@link Integer#MIN_VALUE} value a {@link ArithmeticException} is
+	 * thrown because {@link Integer#MIN_VALUE} is not displayable as a positive number.
 	 *
 	 * @return absolute value, that is |value-0|.
 	 * @throws ArithmeticException if value is equal to INTEGER.MIN_VALUE
