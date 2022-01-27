@@ -19,7 +19,8 @@ public interface Calculator {
 	 * calculate the sum of two integer values.
 	 * 
 	 * if the sum is greater than {@link Integer#MAX_VALUE} or
-	 * smaller than {@link Integer#MIN_VALUE}, an overflow happens
+	 * smaller than {@link Integer#MIN_VALUE}, an overflow or
+	 * underflow happens, respectively.
 	 * 
 	 * @param summand1 first summand
 	 * @param summand2 second summand
@@ -92,7 +93,7 @@ public interface Calculator {
 	/**
 	 * calculates absolute value of a given integer value
 	 * 
-	 * if the value is equal to minimal Integer Value a {@link ArithmeticException} is
+	 * if the value is equal to minimal integer value a {@link ArithmeticException} is
 	 * thrown because {@link Integer#MIN_VALUE} is not displayable as a positive number
 	 *
 	 * @return absolute value, that is |value-0|.
