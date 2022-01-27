@@ -4,6 +4,7 @@ package de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator;
  * 
  * A Calculator. It has Bugs.
  *
+ * @author
  */
 public final class BuggyCalculator implements Calculator {
 
@@ -33,10 +34,10 @@ public final class BuggyCalculator implements Calculator {
 	}
 	
 	/*@
-	 @ ensures dividend < 0 & divisor < 0 ==> \result == 1;
-	 @ ensures dividend > 0 & divisor > 0 ==> \result == 1;
-	 @ ensures dividend < 0 & divisor > 0 ==> \result == -1;
-	 @ ensures dividend > 0 & divisor < 0 ==> \result == -1;
+	 @ ensures (dividend < 0 & divisor < 0 ==> \result == 1)
+	 @ && (dividend > 0 & divisor > 0 ==> \result == 1)
+	 @ && (dividend < 0 & divisor > 0 ==> \result == -1)
+	 @ && (dividend > 0 & divisor < 0 ==> \result == -1)
 	 @*/
 	/**
 	 * calculates the sign of the result when dividing or multiplying to integer

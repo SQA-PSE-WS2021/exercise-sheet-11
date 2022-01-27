@@ -6,32 +6,30 @@ package de.unistuttgart.iste.sqa.pse.sheet11.presence.calculator;
 public interface Calculator {
 
 	/*@
-	 @ ensures summand1 + summand2 <= Integer.MAX_VALUE & summand1 + summand2 >=
-	 @ Integer.MIN_VALUE ==> \result == summand1 + summand2;
+	 @ ensures summand1 + summand2 <= INTEGER.MAX_VALUE & summand1 + summand2 >=
+	 @ INTEGER.MIN_VALUE ==> \result == summand1 + summand2;
 	 @
-	 @ ensures summand1 + summand2 > Integer.MAX_VALUE ==> \result ==
-	 @ Integer.MIN_VALUE + (summand1 + summand2 - Integer.MAX_VALUE) - 1;
+	 @ ensures summand1 + summand2 > INTEGER.MAX_VALUE ==> \result ==
+	 @ INTEGER.MIN_VALUE + (summand1 + summand2 - INTEGER.MAX_VALUE) - 1;
 	 @
-	 @ ensures summand1 + summand2 < Integer.MIN_VALUE ==> \result ==
-	 @ Integer.MAX_VALUE + (summand1 + summand2 - Integer.MIN_VALUE) + 1;
+	 @ ensures summand1 + summand2 < INTEGER.MIN_VALUE ==> \result ==
+	 @ INTEGER.MAX_VALUE + (summand1 + summand2 - INTEGER.MIN_VALUE) + 1;
 	 @*/
 	/**
 	 * calculate the sum of two integer values.
 	 * 
-	 * if the sum is greater than {@linkplain Integer#MAX_VALUE Integer.MAX_VALUE}
-	 * or smaller than {@linkplain Integer#MIN_VALUE Integer.MIN_VALUE} an overflow
+	 * if the sum is greater than {@linkplain Integer#MAX_VALUE INTEGER.MAX_VALUE}
+	 * or smaller than {@linkplain Integer#MIN_VALUE INTEGER.MIN_VALUE} an overflow
 	 * happens
 	 * 
 	 * @param summand1 first summand
 	 * @param summand2 second summand
 	 * @return the sum
 	 */
-	public int add(final int summand1, final int summand2);
+	public int /*@ pure @*/ add(final int summand1, final int summand2);
 
 	/*@
-	 @ requires divisor != Integer.MIN_VALUE;
-	 @ requires divisor != 0;
-	 @ requires dividend != Integer.MIN_VALUE;
+	 @ requires (divisor != INTEGER.MIN_VALUE && divisor != 0) && (dividend != INTEGER.MIN_VALUE);
 	 @
 	 @ ensures divisor != 0 ==> \result == correctly rounded quotient;
 	 @
@@ -51,20 +49,20 @@ public interface Calculator {
 	 * @throws ArithmeticException      if {@code divisor} is zero
 	 * @throws IllegalArgumentException if {@code divisor} or {@code dividend} is
 	 *                                  {@linkplain Integer#MIN_VALUE
-	 *                                  Integer.MIN_VALUE}
+	 *                                  INTEGER.MIN_VALUE}
 	 */
-	public int divide(final int dividend, final int divisor);
+	public int /*@ pure @*/ divide(final int dividend, final int divisor);
 
 	/*
 	 * Operations for exercise 2
 	 */
 
 	/*@
-	 @ requires summand1 + summand2 >= Integer.MIN_Value;
-	 @ requires summand1 + summand2 <= Integer.MAX_Value;
+	 @ requires (summand1 + summand2 >= INTEGER.MIN_VALUE)
+	 @ && (summand1 + summand2 <= INTEGER.MAX_VALUE);
 	 @
-	 @ ensures summand1 + summand2 <= Integer.MAX_VALUE && summand1 + summand2 >=
-	 @ Integer.MIN_VALUE ==> \result == summand1 + summand2;
+	 @ ensures summand1 + summand2 <= INTEGER.MAX_VALUE && summand1 + summand2 >=
+	 @ INTEGER.MIN_VALUE ==> \result == summand1 + summand2;
 	 @
 	 @*/
 	/**
@@ -80,31 +78,29 @@ public interface Calculator {
 	 * @param summand1 first summand
 	 * @param summand2 second summand
 	 * @throws ArithmeticException if summand1 + summand2 are greater than
-	 *                             Integer.MAX_Value or summand1 + summand2 are
-	 *                             smaller than Integer.MIN_Value
+	 *                             INTEGER.MAX_VALUE or summand1 + summand2 are
+	 *                             smaller than INTEGER.MIN_VALUE
 	 * 
 	 * @return sum of summand1 and summand2
 	 * 
 	 */
-	public int addExact(final int summand1, final int summand2);
+	public int /*@ pure @*/ addExact(final int summand1, final int summand2);
 
 	/*@
-	 @ requires value != Integer.MIN_Value;
+	 @ requires value != INTEGER.MIN_VALUE;
 	 @
-	 @ ensures value >= 0 ==> \result == value;
-	 @ ensures value < 0 ==> \result == -1 * value;
-	 @
+	 @ ensures (value >= 0 ==> \result == value)
+	 @ && (value < 0 ==> \result == -1 * value);
 	 @*/
 	/**
 	 * calculates absolute value of a given integer value
 	 * 
 	 * if the value is equal to minimal Integer Value a Arithmetic Exception is
-	 * thrown because Integer.MIN_Value is not displayable as a positive number
-	 * 
-	 * @param value value
-	 * @return absolute value
-	 * @throws ArithmeticException if value is equal to Integer.MIN_Value
+	 * thrown because INTEGER.MIN_VALUE is not displayable as a positive number
+	 *
+	 * @return absolute value, that is |value-0|.
+	 * @throws ArithmeticException if value is equal to INTEGER.MIN_VALUE
 	 */
-	public int abs(final int value);
+	public int /*@ pure @*/ abs(final int value);
 
 }
